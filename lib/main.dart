@@ -8,13 +8,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'MoskNormal400.ttf'),
         home: Scaffold(
           appBar: AppBar(
-              title: Center(
-                  child: Text(
-            'Wattsmycons',
-            style: TextStyle(fontFamily: 'MoskNormal400.ttf'),
-          )),),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            title: Text(
+                'Wattsmycons',
+                style: TextStyle(color: Color(0xFF120E4C), fontSize: 25),
+              ),
+          ),
           body: HomePage(),
         ));
   }
