@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'tab1.dart';
 
 class TabBarDemo extends StatelessWidget {
+  Tab1 tab1 = Tab1();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +21,7 @@ class TabBarDemo extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.directions_car),
+              Tab1(),
               Icon(Icons.directions_transit),
               Icon(Icons.directions_bike),
             ],
