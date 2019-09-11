@@ -17,8 +17,8 @@ class TabBarDemo extends StatelessWidget {
             elevation: 0.0,
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.directions_car, color: Color(0xFF120E4C))),
-                Tab(icon: Icon(Icons.directions_transit, color: Color(0xFF120E4C))),
+                Tab(icon: Icon(Icons.cloud, color: Color(0xFF120E4C))),
+                Tab(icon: Icon(Icons.apps, color: Color(0xFF120E4C))),
               ],
             ),
             title: Text('Wattsmycons', style: TextStyle(color: Color(0xFF120E4C)),),
