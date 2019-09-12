@@ -12,7 +12,7 @@ class DonutAutoLabelChart extends StatelessWidget {
     return new DonutAutoLabelChart(
       _createSampleData(),
       // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 
@@ -38,16 +38,18 @@ class DonutAutoLabelChart extends StatelessWidget {
         //          outsideLabelStyleSpec: new charts.TextStyleSpec(...)),
         defaultRenderer: new charts.ArcRendererConfig(
             arcWidth: 60,
-            arcRendererDecorators: [new charts.ArcLabelDecorator()]));
+            arcRendererDecorators: [new charts.ArcLabelDecorator()],
+        )
+    );
   }
 
   /// Create one series with sample hard coded data.
   static List<charts.Series<LinearSales, int>> _createSampleData() {
     final data = [
-      new LinearSales(0, 100),
-      new LinearSales(1, 75),
-      new LinearSales(2, 25),
-      new LinearSales(3, 5),
+      new LinearSales(0, 10),
+      new LinearSales(1, 25),
+      new LinearSales(2, 75),
+      new LinearSales(3, 100),
     ];
 
     return [
@@ -57,7 +59,7 @@ class DonutAutoLabelChart extends StatelessWidget {
         measureFn: (LinearSales sales, _) => sales.sales,
         data: data,
         // Set a label accessor to control the text of the arc label.
-        labelAccessorFn: (LinearSales row, _) => '${row.year}: ${row.sales}',
+        labelAccessorFn: (LinearSales row, _) => '${0.5 + (0.1 * row.sales) + row.year} kW',
       )
     ];
   }

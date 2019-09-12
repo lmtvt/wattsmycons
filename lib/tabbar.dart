@@ -21,7 +21,8 @@ class TabBarDemo extends StatelessWidget {
                 Tab(icon: Icon(Icons.apps, color: Color(0xFF120E4C))),
               ],
             ),
-            title: Text('Wattsmycons', style: TextStyle(color: Color(0xFF120E4C)),),
+            title: Text('WattsMyCons', style: TextStyle(color: Color(0xFF120E4C)),),
+            centerTitle: true,
           ),
           body: TabBarView(
             children: [

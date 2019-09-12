@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:device_apps/device_apps.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Tab2 extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class Tab2 extends StatelessWidget {
       future: DeviceApps.getInstalledApplications(
           includeAppIcons: true, 
           includeSystemApps: false,
-          onlyAppsWithLaunchIntent: false),
+          onlyAppsWithLaunchIntent: true),
           builder: (context, data) {
             if (data.data == null) {
               return Center(child: CircularProgressIndicator());
@@ -30,22 +31,36 @@ class Tab2 extends StatelessWidget {
                         Application app = apps[position];
                         return Column(
                           children: <Widget>[
-                            ListTile(
-                              leading: app is ApplicationWithIcon
-                                  ? CircleAvatar(
-                                      backgroundImage: MemoryImage(app.icon),
-                                      backgroundColor: Colors.white,
-                                    )
-                                  : null,
-                              title: Text(
-                                "${app.appName}",
-                                style: TextStyle(color: Color(0xFFFFFFFF)),
+                            Slidable(
+                              actionPane: SlidableDrawerActionPane(),
+                              actionExtentRatio: 0.25,
+                              direction: Axis.horizontal,
+                              child: Container(
+                                child: ListTile(
+                                  leading: app is ApplicationWithIcon
+                                      ? CircleAvatar(
+                                    backgroundImage: MemoryImage(app.icon),
+                                    backgroundColor: Colors.white,
+                                  )
+                                      : null,
+                                  title: Text(
+                                    "${app.appName}",
+                                    style: TextStyle(color: Color(0xFFFFFFFF)),
+                                  ),
+                                  subtitle: Text('0.65 kw\n0.245 gCO2e', style: TextStyle(color: Color(0xFFFFFFFF))),
+                                ),
                               ),
-                              subtitle: Text('0.65 kw', style: TextStyle(color: Color(0xFFFFFFFF))),
+                              secondaryActions: <Widget>[
+                                IconSlideAction(
+                                  caption: 'Forcer l\'arrêt',
+                                  color: Colors.red,
+                                  icon: Icons.stop,
+                                ),
+                              ],
                             ),
                             Divider(
                               height: 1.0,
-                            )
+                            ),
                           ],
                         );
                       },

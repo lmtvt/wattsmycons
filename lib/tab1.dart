@@ -6,6 +6,10 @@ class Tab1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        SizedBox(height: 20),
+        Text("Consommation en kw: 1.15 kw", style: TextStyle(fontSize: 20)),
+        SizedBox(height: 30),
+        Text("Emission de CO2: 460 gCO2e", style: TextStyle(fontSize: 20)),
         Expanded(child: DonutAutoLabelChart.withSampleData()),
       ],
     );
